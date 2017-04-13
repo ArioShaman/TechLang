@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>main</title>
+	<meta charset="utf-8">
+	{% include 'mini-temp/head.html' %}
+
+</head>
+<body>
+
+{% include 'mini-temp/sidebar.html' %}
+
+<div class="container-body">
+	<div class="content-block ">
+			<div class="chat-block">
+				<div class="side-chat">
+					<div class="search-bl">
+						<input type="text" name="search" class="fa fa-search search" placeholder="search">
+
+						<div class="users">
+							
+							{% for dialog in dialogs %}
+								{%if dialog.user_id != user_id%}
+								<a href="im/{{dialog.r_id}}">
+									<div class="user-section">
+										<div class="us-i">
+											<img class="face-img2" src="{{url_for('static', filename='images/guest.svg')}}">
+										</div>
+
+										<div class="ch-name">
+											
+											{{dia_name(dialog.r_id)}}
+										</div>
+										<div class="ch-status">
+											<i class="fa fa-circle green" aria-hidden="true"></i>	
+											<span class="m-left-5">Online</span>
+										</div>
+									</div>
+								</a>
+								{% endif %}
+							{% endfor%}
+						</div>
+					</div>
+
+					
+				</div>
+
+				<div class="cont-chat">
+					
+				
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<script>
+function openNav() {
+    document.getElementById("mySidenav").style.width = "250px";
+    document.getElementById("main").style.marginLeft = "250px";
+}
+
+function closeNav() {
+    document.getElementById("mySidenav").style.width = "0";
+    document.getElementById("main").style.marginLeft= "0";
+}
+
+$(document).ready(function(){
+	$('#nav-icon1').click(function(){
+		$(this).toggleClass('open');
+		$("#mySidenav").toggleClass('nav');
+		$("#nav-icon1").toggleClass('m-nav');
+		$(".container-body").toggleClass('m-cont');
+	});
+});
+</script>
+     
+</body>
+</html>

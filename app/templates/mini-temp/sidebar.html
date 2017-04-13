@@ -1,0 +1,42 @@
+<div id="nav-icon1">
+	<span></span>
+	<span></span>
+	<span></span>
+</div>
+
+<div id="mySidenav" class="sidenav">
+  
+
+	<div class="face-block">
+	 	<div class="face-cont">
+	 		<img class="face-img1" src="{{url_for('static', filename='images/guest.svg')}}">
+	 	</div>
+
+	 	<div class="face-name-bl">
+	 	{% if uslname == true %}
+	 		<p class="name">{{curname}}</p>
+	 		<p class="sm-inf">{{town}}</p>
+	 	{% endif %}
+	 	{% if uslname == false %}
+	 		<p class="name">{{curname}}</p>
+	 		<p class="sm-inf">{{town}}</p>
+	 	{% endif %}
+	 		
+	 	
+	 	</div>
+	</div>
+
+
+  <a href="#">News</a>
+  <a href="/dialogs">Dialogs</a>
+  <a href="/cources/{{curname}}">My course</a>
+  <a href="/vocabulary">Vocabulary</a>
+  
+  {% if g.admin.is_authenticated%}
+     <a href="/logout">Logout</a>
+  {% endif %}
+
+  {% if not g.admin.is_authenticated%}
+     <a href="/login_page">Login</a>   
+  {% endif %}
+</div>

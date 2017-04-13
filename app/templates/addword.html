@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>main</title>
+	<meta charset="utf-8">
+	{% include 'mini-temp/head.html' %}
+
+</head>
+<body>
+
+{% include 'mini-temp/sidebar.html' %}
+
+<div class="container-body">
+	<div class="content-block ">
+			<div class="add_form-2">
+				<div class="add-tit">ADD FOLDER</div>
+
+				<form method="post" action="/addword">
+					{{ form.csrf_token }}	
+									
+						<div class="add-text"><p class="rev-adm">
+						English:</p></div>
+						{{form.eng(class_="add-control")}}
+
+						<div class="add-text"><p class="rev-adm">
+						Russian:</p></div>
+						{{form.rus(class_="add-control")}}
+
+						<div class="add-text"><p class="rev-adm">
+						Description:</p></div>
+						{{form.desc(class_="add-control")}}
+
+						<div class="add-text"><p class="rev-adm">
+						Link to image:</p></div>
+						{{form.cover(class_="add-control")}}
+					<div class="form-group">
+						<input class="sub-btn peace" type="submit" value="Add">
+					</div>
+				</form>
+			</div>
+	</div>
+</div>
+<script>
+function openNav() {
+    document.getElementById("mySidenav").style.width = "250px";
+    document.getElementById("main").style.marginLeft = "250px";
+}
+
+function closeNav() {
+    document.getElementById("mySidenav").style.width = "0";
+    document.getElementById("main").style.marginLeft= "0";
+}
+
+$(document).ready(function(){
+	$('#nav-icon1').click(function(){
+		$(this).toggleClass('open');
+		$("#mySidenav").toggleClass('nav');
+		$("#nav-icon1").toggleClass('m-nav');
+		$(".container-body").toggleClass('m-cont');
+	});
+});
+</script>
+     
+</body>
+</html>

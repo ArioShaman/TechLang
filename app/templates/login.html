@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>main</title>
+	<meta charset="utf-8">
+	{% include 'mini-temp/head.html' %}
+
+</head>
+<body>
+
+{% include 'mini-temp/sidebar.html' %}
+
+<div class="container-body">
+	<div class="login-block">
+		<div class="top-login">
+			<form method="post" action="/login">
+					{{ form.csrf_token }}
+						{% if error%}
+							<div class="error">
+								<p class="error-text">Извините, но у вас не достаточно прав для этой операции</p>
+							</div>
+						{% endif %}						
+						<div class="text-bl"><p class="rev-adm">Admin name:</p></div>
+						{{form.nickname(class_="form-control")}}
+						<div class="text-bl"><p class="rev-adm">Password:</p></div>
+						{{form.password(class_="form-control")}}
+					<div class="form-group">
+						<input class="sub-btn peace" type="submit" value="Login">
+					</div>
+				</form>
+			</div>
+	</div>
+</div>
+<script>
+function openNav() {
+    document.getElementById("mySidenav").style.width = "250px";
+    document.getElementById("main").style.marginLeft = "250px";
+}
+
+function closeNav() {
+    document.getElementById("mySidenav").style.width = "0";
+    document.getElementById("main").style.marginLeft= "0";
+}
+
+$(document).ready(function(){
+	$('#nav-icon1').click(function(){
+		$(this).toggleClass('open');
+		$("#mySidenav").toggleClass('nav');
+		$("#nav-icon1").toggleClass('m-nav');
+		$(".container-body").toggleClass('m-cont');
+	});
+});
+</script>
+     
+</body>
+</html>

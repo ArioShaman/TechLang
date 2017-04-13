@@ -1,0 +1,27 @@
+@font-face{
+	src:url(fonts/Open-Sans-Regular.ttf);
+	font-family: opensans;
+}
+@font-face{
+	src:url(fonts/Rubik-Bold.ttf);
+	font-family: rubik;
+}
+@font-face{
+	src:url(fonts/ComfortaaBold.ttf);
+	font-family: comfort;
+}
+@font-face{
+	src:url(fonts/Peace-Sans.ttf);
+	font-family: peace;
+}
+@font-face{
+	src:url(fonts/Hammersmith.ttf);
+	font-family: hammer;
+}
+@font-face{
+	src:url(fonts/OpenSans-Regular.ttf);
+	font-family: open-sans;
+}
+.opensans{
+	font-family: opensans;
+}

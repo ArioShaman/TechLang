@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>main</title>
+	<meta charset="utf-8">
+	{% include 'mini-temp/head.html' %}
+
+</head>
+<body>
+
+{% include 'mini-temp/sidebar.html' %}
+
+<div class="container-body">
+	<div class="content-block ">
+			<div class="chat-block">
+				<div class="side-chat">
+					<div class="search-bl">
+						<input type="text" name="search" class="fa fa-search search" placeholder="search">
+
+						<div class="users">
+							
+							{% for dialog in dialogs %}
+								{%if dialog.user_id != user_id%}
+								<a href="im/{{dialog.r_id}}">
+									<div class="user-section">
+										<div class="us-i">
+											<img class="face-img2" src="{{url_for('static', filename='images/guest.svg')}}">
+										</div>
+
+										<div class="ch-name">	
+											{{dia_name(dialog.r_id)}}
+										</div>
+										<div class="ch-status">
+											<i class="fa fa-circle green" aria-hidden="true"></i>	
+											<span class="m-left-5">Online</span>
+										</div>
+									</div>
+								</a>
+								{% endif %}
+							{% endfor%}
+						</div>
+					</div>
+
+					
+				</div>
+
+				<div class="cont-chat">
+					<div class="chat-head">
+						<div class="us-i2">
+							<img class="face-img3" src="{{url_for('static', filename='images/guest.svg')}}">
+						</div>
+						<div class="next-inf">
+							<div class="n-name">{{oportunete_name(user_id)}}</div>
+							<div class="n-status">
+								<div class="smaller">
+									<i class="fa fa-circle" aria-hidden="true"></i>
+									<i class="fa fa-circle" aria-hidden="true"></i>
+									<i class="fa fa-circle" aria-hidden="true"></i>
+								</div>
+								<span class="marg-l-15"></span>
+							</div>
+						</div>
+
+						<div class="star">
+							<i class="fa fa-2x fa-star-o" aria-hidden="true"></i>
+						</div>
+					</div>
+					<div class="chat-store" id="chat-store">
+						
+						{%for message in messages %}
+							{% if my(message.uid) == True%}
+								{% if last_element(r_id) == message.uid%}
+								<div class="my-block" id="last">
+								{% endif %}
+								{% if last_element(r_id) != message.uid%}
+								<div class="my-block">
+								{% endif %}
+								<div class="me-name">
+									<span class="green">
+										<i class="fa fa-circle" aria-hidden="true"></i>	
+									</span>
+									{{get_name(message.autor_id)}}
+									
+								</div>
+								<div class="my-mess textmess">
+									{{message.message}}
+								</div>
+							</div>
+							{% endif %}
+
+							{% if my(message.uid) == False%}
+								
+								{% if last_element(r_id) == message.uid%}
+								<div class="own-block" id="last">
+								{% endif %}
+								{% if last_element(r_id) != message.uid%}
+								<div class="own-block">
+								{% endif %}
+								<div class="own-name">
+									<span class="green">
+										<i class="fa fa-circle" aria-hidden="true"></i>	
+									</span>
+									{{get_name(message.autor_id)}}
+									
+								</div>
+								<div class="own-mess textmess">
+									{{message.message}}
+				
+								</div>
+							</div>
+							{% endif %}
+						{% endfor %}
+
+					</div>
+					
+					<div class="chat-footer">
+						<form method="post" action="/send_mess/{{r_id}}/{{user_id}}">
+					{{ form.csrf_token }}					
+						{{form.message(class_="send-mess")}}
+					
+						
+						<button class="krug-btn" type="submit">
+							<i class="fa fa-play m-play" aria-hidden="true"></i>
+						</button>
+						
+					</div>
+				</form>
+					</div>
+			</div>
+		</div>
+	</div>
+</div>
+<script>
+function openNav() {
+    document.getElementById("mySidenav").style.width = "250px";
+    document.getElementById("main").style.marginLeft = "250px";
+}
+
+function closeNav() {
+    document.getElementById("mySidenav").style.width = "0";
+    document.getElementById("main").style.marginLeft= "0";
+}
+
+$(document).ready(function(){
+	$('#nav-icon1').click(function(){
+		$(this).toggleClass('open');
+		$("#mySidenav").toggleClass('nav');
+		$("#nav-icon1").toggleClass('m-nav');
+		$(".container-body").toggleClass('m-cont');
+	});
+
+	
+	$('#chat-store').animate({
+        scrollTop: $("#last").scrollTop()
+    }, 0);
+
+    $('#chat-store').scrollTop($('#last').position().top + $('#last').height() + 20 - $('#chat-store').outerHeight())
+});
+
+
+</script>
+     
+</body>
+</html>

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>main</title>
+	<meta charset="utf-8">
+	{% include 'mini-temp/head.html' %}
+
+</head>
+<body>
+
+{% include 'mini-temp/sidebar.html' %}
+
+<div class="container-body">
+	<div class="content-block ">
+			<div class="voc-block">
+				<div class="voc-head">
+					<div class="voc-h-t">Vocabulary</div>
+				</div>
+				<div class="vocbody">
+					<div class="w-cont">
+						{% for word in words %}
+							<div class="col-lg-4">
+								<div class="word-block">
+								<img class="word-ph" src="{{word.link_cover}}">
+									
+									<div class="word-text">
+										<div class="word-eng">		
+											{{word.eng}}
+										</div>
+										<div class="w-line"></div>
+										<div class="word-rus">
+											{{word.rus}}
+										</div>
+
+										<div class="w-foot">
+											{{word.desc}}
+										</div>
+									</div>
+								</div>
+							</div>
+						{% endfor %}
+						<a href="/add_word">
+							<div class="add_word">
+								<i class="fa fa-2x fa-plus myplus" aria-hidden="true"></i>
+							</div>
+						</a>
+
+					</div>
+				</div>
+			</div>
+
+	</div>
+</div>
+<script>
+function openNav() {
+    document.getElementById("mySidenav").style.width = "250px";
+    document.getElementById("main").style.marginLeft = "250px";
+}
+
+function closeNav() {
+    document.getElementById("mySidenav").style.width = "0";
+    document.getElementById("main").style.marginLeft= "0";
+}
+
+$(document).ready(function(){
+	$('#nav-icon1').click(function(){
+		$(this).toggleClass('open');
+		$("#mySidenav").toggleClass('nav');
+		$("#nav-icon1").toggleClass('m-nav');
+		$(".container-body").toggleClass('m-cont');
+	});
+});
+</script>
+     
+</body>
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>main</title>
+	<meta charset="utf-8">
+	{% include 'mini-temp/head.html' %}
+
+</head>
+<body>
+
+{% include 'mini-temp/sidebar.html' %}
+
+<div class="container-body">
+	<div class="content-block ">
+			<div class="add_form">
+				<div class="add-tit">ADD FOLDER</div>
+
+				<form method="post" action="/addfold">
+					{{ form.csrf_token }}					
+						<div class="add-text"><p class="rev-adm">
+						Folder name:</p></div>
+						{{form.name_folder(class_="add-control")}}
+					<div class="form-group">
+						<input class="sub-btn peace" type="submit" value="Add">
+					</div>
+				</form>
+			</div>
+	</div>
+</div>
+<script>
+function openNav() {
+    document.getElementById("mySidenav").style.width = "250px";
+    document.getElementById("main").style.marginLeft = "250px";
+}
+
+function closeNav() {
+    document.getElementById("mySidenav").style.width = "0";
+    document.getElementById("main").style.marginLeft= "0";
+}
+
+$(document).ready(function(){
+	$('#nav-icon1').click(function(){
+		$(this).toggleClass('open');
+		$("#mySidenav").toggleClass('nav');
+		$("#nav-icon1").toggleClass('m-nav');
+		$(".container-body").toggleClass('m-cont');
+	});
+});
+</script>
+     
+</body>
+</html>

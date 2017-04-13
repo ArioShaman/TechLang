@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>main</title>
+	<meta charset="utf-8">
+<!-- 	<meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0, user-scalable=no, maximum-scale=1.0"> -->
+	{% include 'mini-temp/head.html' %}
+	<link rel="stylesheet" type="text/css" href="{{url_for('static', filename='css/alan.css')}}">
+	
+	<link rel="stylesheet" type="text/css" href="{{url_for('static', filename='css/slick.css')}}">
+	
+	<link rel="stylesheet" type="text/css" href="{{url_for('static', filename='css/slick-theme.css')}}">
+
+	<script type="text/javascript"
+	src="{{url_for('static', filename='js/slick.min.js')}}"></script>
+</head>
+<body>
+
+{% include 'mini-temp/sidebar.html' %}
+
+<div class="container-body3">
+	<dsiv class="content-block">
+		<div class="alan-st">
+			<div class="infteacher">
+				<div class="face-t">
+				<p class="al-name">Alan Ikaev</p>
+					<img class="users" src="{{url_for('static', filename='images/user.svg')}}" alt="" width="100%" height="70%">
+				</div>
+			</div>
+			<h1 class="last">Последнее</h1>
+			<div class="slide-t">
+				{%for video in videos%}
+				<div class="in-sl">
+					<a href="{{video.link_video}}">
+						<div class="play-c">
+							<i class="fa fa-play fa-2x f-play" aria-hidden="true"></i>
+						</div>
+						<div class="over">
+							<img class="all-img" src="{{video.cover}}">
+						</div>
+					</a>
+				</div>
+				{% endfor %}
+			</div>
+
+			<h1 class="last">Блог:</h1>
+			<div class="infot">
+				{%for post in posts %}
+				<div class="col-lg-6">
+					<div class="infot-one">
+						<div class="contteach">
+							<img src="{{post.cover}}" alt="" width="100%" height="100%">
+						</div>
+						<div class="t-cont">
+							<h2 align="center">{{post.title}}</h2><br>
+							<p>{{post.desk}}</p>
+
+							<a href=""><div class="buttgo" align="center">GO</div></a>
+						</div>
+					</div>
+				</div>
+				{% endfor%}
+			</div>
+		</div>
+	</div>
+</div>
+
+<script>
+function openNav() {
+    document.getElementById("mySidenav").style.width = "250px";
+    document.getElementById("main").style.marginLeft = "250px";
+}
+
+function closeNav() {
+    document.getElementById("mySidenav").style.width = "0";
+    document.getElementById("main").style.marginLeft= "0";
+}
+
+$(document).ready(function(){
+	$('#nav-icon1').click(function(){
+		$(this).toggleClass('open');
+		$("#mySidenav").toggleClass('nav');
+		$("#nav-icon1").toggleClass('m-nav');
+		$(".container-body3").toggleClass('m-cont');
+	});
+});
+
+$('.slide-t').slick({
+	infinite: true,
+  	slidesToShow: 4,
+  	slidesToScroll: 2,
+  	dots:true,
+  	centerPadding: '40px'
+});
+</script>
+     
+</body>
+</html>
