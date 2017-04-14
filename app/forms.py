@@ -1,5 +1,5 @@
 from flask_wtf import Form 
-from wtforms import Form, BooleanField, StringField, PasswordField,TextField,FileField, validators
+from wtforms import Form, BooleanField, StringField, PasswordField,IntegerField,TextField,FileField, validators
 from app.models import Admin
 from flask_wtf.file import FileField, FileAllowed, FileRequired
 #from flask_uploads import UploadSet, IMAGES
@@ -18,6 +18,13 @@ class WordForm(Form):
 	cover = StringField('Link to cover',[validators.Required()],render_kw={"placeholder": "Enter link for your image"})
     
    
+class RegisterForm(Form):
+	firstname = StringField('First Name',[validators.Required()],render_kw={"placeholder": "Bill"}) 
+	lastname = StringField('Last Name',[validators.Required()],render_kw={"placeholder": "Bills"})
+	town =  StringField('Last Name',[validators.Required()],render_kw={"placeholder": "town"})
+	age =  IntegerField('Age',[validators.Required()],render_kw={"placeholder": "age"})
+	password = PasswordField('Password',render_kw={"placeholder": "password"})
+
 class FolderForm(Form):
 	name_folder = StringField('Russian',[validators.Required()],render_kw={"placeholder": "Enter folder name"})
 

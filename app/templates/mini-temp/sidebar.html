@@ -3,6 +3,9 @@
 	<span></span>
 	<span></span>
 </div>
+<div class="logo-cont">
+	<img class="logo-img" src="{{url_for('static', filename='images/logo.png')}}">
+</div>
 
 <div id="mySidenav" class="sidenav">
   
@@ -28,10 +31,12 @@
 
 
   <a href="#">News</a>
+  <a href="/search">Search</a>
   <a href="/dialogs">Dialogs</a>
   <a href="/cources/{{curname}}">My course</a>
   <a href="/vocabulary">Vocabulary</a>
-  
+  <a href="/units">Units</a>
+
   {% if g.admin.is_authenticated%}
      <a href="/logout">Logout</a>
   {% endif %}

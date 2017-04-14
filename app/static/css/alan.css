@@ -142,11 +142,23 @@ a{
 .buttgo:hover{
     background: #ECF195;
 }
-input .search{
-    margin-left: 420px;
-    margin-top:100px;
+input.search{
     height:50px;
-    width:500px;
+    width:100%;
+    background-color: grey;
+    transition: 0.5s;
+}
+input.search:hover{
+    border: 2px solid grey; 
+}
+input.search:focus{
+    background-color: #E7E7E4;
+    border: 2px solid grey;
+    color: grey; 
+}
+.search-cont{
+	width: 700px;
+	margin-left:7%;
 }
 .al-name{
 	font-weight: 400;
@@ -176,17 +188,33 @@ input .search{
 	height: 120px;
 	background: #30D57B;
 	border-radius: 65%;
-	margin-top:-60%;
 	margin-left:20px;
 	position: absolute;
+	top: 0px;
+	margin-top: 25px;
 }
-.photo>img{
+.country{
 	width: 100px;
 	height: 80px;
 	margin-left: 15px;
-	margin-top: -50px;
+	position: absolute;
+	top: 0px;
 }
-
+.us-img{
+	width:90px;
+	height:90px;
+	margin-left: 20px;
+	margin-top: 10px;
+}
+.us-info{
+	position: relative;
+	height: 50px;
+	width: 170px;
+	top: 150px;
+}
+.us-name{
+	text-align: center;
+}
 .photo p{
 	margin-top:20px;
 	margin-left:150px;
@@ -202,16 +230,24 @@ input .search{
 	color:#30D57B;
 }
 .citycountr{
-		width: 200px;
-		padding-top:-100px;
 		font-size: 19px;
-		margin-left: 50px;
-		position: absolute;
-		margin-top: -90px;
+		text-align: center;
 }
 .russia{
-	position: absolute;
 	width: 70px;
 	margin-top: 0px;
 	margin-left: 210px;
+}
+.plus-teacher{
+	height: 35px;
+	width: 35px;
+	border-radius: 50%;
+	position: absolute;
+	margin-top: 115px;
+	padding-left: 2px;
+	padding-top: 2px;
+}
+.plus-teacher:hover{
+	color: #4F47F5;
+	background-color: #47F596;
 }

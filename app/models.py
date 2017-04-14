@@ -3,6 +3,7 @@ from flask_admin.contrib.sqlamodel import ModelView
 from sqlalchemy import Column, Integer, String,Text
 import datetime
 
+
 ROLE_ADMIN = 1
 ROLE_USER = 0
 
@@ -17,6 +18,8 @@ class Admin(db.Model):
     age = db.Column(db.Integer, unique = False)
     role = db.Column(db.SmallInteger, default = ROLE_ADMIN)
     password =db.Column(db.String(64),default = 'admin')
+    interests = db.Column(db.Text, default = '')
+
 
     def __init__(self , nickname ,password,email):
         self.nickname = nickname
@@ -79,4 +82,29 @@ class Post(db.Model):
     cover = db.Column(db.String(564))
     article = db.Column(db.String(560))
     #data = db.Column(db.DateTime,default=datetime.datetime.utcnow)
-    
+
+class Events(db.Model):
+    uid = db.Column(db.Integer,primary_key = True)
+    autor_id = db.Column(db.Integer)
+    description = db.Column(db.String(64))
+
+class Partipiant(db.Model):
+    uid = db.Column(db.Integer, primary_key = True)
+    event_id = db.Column(db.Integer)
+    user_id = db.Column(db.Integer)
+
+class Interests(db.Model):
+    uid = db.Column(db.Integer, primary_key = True)
+    text = db.Column(db.Text)
+    max_user_count = db.Column(db.Integer)
+    curent_user_count = db.Column(db.Integer)
+
+class UserInterest(db.Model):
+    uid = db.Column(db.Integer, primary_key = True)
+    user_id = db.Column(db.Integer)
+    interest_id = db.Column(db.Integer)
+
+class check_unit_user(db.Model):
+    uid = db.Column(db.Integer, primary_key = True)
+    user_id = db.Column(db.Integer)
+    check_unit = db.Column(db.Integer)

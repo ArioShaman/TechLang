@@ -841,3 +841,40 @@ input.send-mess{
   font-weight: 300;
   display: inline-block;
 }
+.logo-cont{
+  height: 75px;
+  width: 75px;
+  position: absolute;
+  margin-left: 90%;
+  margin-top: 15px;
+}
+.logo-img{
+  width: 75px;
+  height: 75px;
+}
+.unit-cont{
+  width: 80%;
+  margin-left: 10%;
+  background-color: white;
+  box-shadow: 0 0 10px rgba(0,0,0,0.5);
+}
+.unit-full{
+  width: 100%;
+  height: 400px;
+  background-color: #FFEBF5;
+}
+.unit-cover{
+  height: 300px;
+  width: 100%;
+}
+.all-img{
+  width: 100%;
+  height: 100%;
+}
+.askal{
+  position: absolute;
+  height: 380px;
+  width: 200px;
+  margin-left: 700px;
+  margin-top: -30px;
+}

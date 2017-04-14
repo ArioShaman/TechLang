@@ -3,7 +3,7 @@ import os, re
 from app import app, db, lm
 from flask import g,jsonify,request, render_template, Flask, url_for, flash, redirect,session, abort, session, send_from_directory,send_file
 import models
-from models import Admin,VocFolder,VocWord,Post, Message, RoomDialog, Videos
+from models import Admin,VocFolder,VocWord,Post, Message, RoomDialog, Videos, Events, Partipiant, Interests,UserInterest
 from app.forms import LoginForm, WordForm, FolderForm, Send
 from flask.ext.login import login_user , logout_user , current_user , login_required
 import datetime
@@ -102,6 +102,14 @@ def login():
 	session['town'] = Admin.query.filter_by(nickname=nickname).first().town
 	session['loged_in'] = True
 	return redirect('/') 
+
+
+@app.route('/register',methods=['GET','POST'])
+def register():
+	return redirect('/')
+
+
+
 
 @app.route('/test')
 def tester():
@@ -286,5 +294,16 @@ def search():
 		town = session.get('town')
 		uid = Admin.query.filter_by(nickname=curname).first().uid
 		return render_template('search.html',uslname = uslname,curname = curname,town = town)
+	else:
+		return render_template('plreg.html')
+
+@app.route('/units')
+def get_units():
+	if 'loged_in' in session:
+		uslname = True
+		curname = session['nickname']
+		town = session.get('town')
+		uid = Admin.query.filter_by(nickname=curname).first().uid
+		return render_template('units.html',uslname = uslname,curname = curname,town = town)
 	else:
 		return render_template('plreg.html')
