@@ -3,7 +3,7 @@ import os, re
 from app import app, db, lm
 from flask import g,jsonify,request, render_template, Flask, url_for, flash, redirect,session, abort, session, send_from_directory,send_file
 import models
-from models import Admin,VocFolder,VocWord,Post, Message, RoomDialog, Videos, Events, Partipiant, Interests,UserInterest
+from models import Admin,VocFolder,VocWord,Post, Message, RoomDialog, Videos, Events, Partipiant, Interests,UserInterest,check_unit_user
 from app.forms import LoginForm, WordForm, FolderForm, Send
 from flask.ext.login import login_user , logout_user , current_user , login_required
 import datetime
@@ -304,6 +304,38 @@ def get_units():
 		curname = session['nickname']
 		town = session.get('town')
 		uid = Admin.query.filter_by(nickname=curname).first().uid
+		if uid == None:
+			return redirect('/unit/1')
+		else:
+			return redirect('unit/%s'%(uid))
+		last_check_unit = check_unit_user.query.filter_by(user_id = uid).first().check_unit
+
+		return render_template('units.html',uslname = uslname,
+			curname = curname,town = town,
+			last = last_check_unit,
+			)
+	else:
+		return render_template('plreg.html')
+
+@app.route('/unit/<index>')
+def get_unit(index):
+	if 'loged_in' in session:
+		uslname = True
+		curname = session['nickname']
+		town = session.get('town')
+		uid = Admin.query.filter_by(nickname=curname).first().uid
+		return render_template('unit%s.html'%index)
+	else:
+		return render_template('plreg.html')
+"""
+@app.route('/units')
+def get_units():
+	if 'loged_in' in session:
+		uslname = True
+		curname = session['nickname']
+		town = session.get('town')
+		uid = Admin.query.filter_by(nickname=curname).first().uid
 		return render_template('units.html',uslname = uslname,curname = curname,town = town)
 	else:
 		return render_template('plreg.html')
+"""
