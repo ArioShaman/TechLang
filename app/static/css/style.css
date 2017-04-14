@@ -945,3 +945,16 @@ input.cr_cov_link:focus{
   background-color: white;
   color: black;
 }
+
+.pub-btn{
+  margin-top: 25px;
+  width: 20%;
+  margin-left: 40%;
+  height: 50px;
+  background-color: yellow;
+  position: relative;
+}
+.empt-20{
+  height: 20px;
+  width: 100%;
+}

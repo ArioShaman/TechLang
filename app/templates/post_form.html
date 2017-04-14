@@ -5,6 +5,7 @@
 	<meta charset="utf-8">
 	{% include 'mini-temp/head.html' %}
 	<link rel="stylesheet" type="text/css" href="{{url_for('static', filename='css/alan.css')}}">
+	<script src="{{url_for('static', filename='ckeditor/ckeditor.js')}}"></script>
 
 </head>
 <body>
@@ -29,10 +30,20 @@
 
 				<div class="cr-desc">Content:</div>
 
+				<textarea name="editor1" id="editor1" rows="12">
+                This is my textarea to be replaced with CKEditor.
+            	</textarea>
+
+            	<div class="pub-btn"></div>
+
+            	<div class="empt-20"></div>
 			</div>
 		</div>
 	</div>
 </div>
+<script>
+    CKEDITOR.replace( 'editor1' );
+</script>
 <script>
 function openNav() {
     document.getElementById("mySidenav").style.width = "250px";
