@@ -324,18 +324,21 @@ def get_unit(index):
 		curname = session['nickname']
 		town = session.get('town')
 		uid = Admin.query.filter_by(nickname=curname).first().uid
-		return render_template('unit%s.html'%index)
+		return render_template('unit%s.html'%index,uslname = uslname,
+			curname = curname,town = town
+			)
 	else:
 		return render_template('plreg.html')
-"""
-@app.route('/units')
-def get_units():
+
+@app.route('/publicate')
+def publicater():
 	if 'loged_in' in session:
 		uslname = True
 		curname = session['nickname']
 		town = session.get('town')
 		uid = Admin.query.filter_by(nickname=curname).first().uid
-		return render_template('units.html',uslname = uslname,curname = curname,town = town)
+		return render_template('post_form.html',uslname = uslname,
+			curname = curname,town = town
+		)
 	else:
 		return render_template('plreg.html')
-"""

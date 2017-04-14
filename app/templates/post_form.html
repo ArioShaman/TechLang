@@ -13,15 +13,22 @@
 
 <div class="container-body3 height1">
 	<div class="content-block">
-		<div class="unit-cont">
-			<div class="unit-cover">
-				<img class="all-img" src="{{ url_for('static', filename = 'images/units/Unit1.png')}}">
-			</div>
-			
-				<img class="askal" src="{{ url_for('static', filename = 'images/character/Exalibur(2).png')}}">
-			
-			<div class="unit-full">
-				{{last}}
+		<div class="col-lg-10 col-lg-offset-0">
+			<div class="create-cont">
+				<div class="cr-tit">
+					CREATE POST
+				</div>
+
+				<div class="cr-desc">Description:</div>
+
+				<textarea name="descript" class="desc_area" rows="2" maxlength="200" placeholder="description"></textarea>
+
+				<div class="cr-desc">Cover link:</div>
+
+				<input type="text" name="coverlink" class="cr_cov_link" placeholder="cover link">
+
+				<div class="cr-desc">Content:</div>
+
 			</div>
 		</div>
 	</div>

@@ -878,3 +878,70 @@ input.send-mess{
   margin-left: 700px;
   margin-top: -30px;
 }
+.create-cont{
+  width: auto;
+  margin-left: 24%;
+  border-radius: 9px;
+  background-color: rgb(34, 34, 34)
+
+}
+.cr_text{
+  color: white;
+  font-family: hammer;
+}
+.cr-tit{
+  width: 100%;
+  position: relative;
+  height: 80px;
+  text-align: center;
+  font-size: 41px;
+  font-weight: 900;
+  color: white;
+  font-family: hammer;
+  padding-top: 25px;
+}
+.cr-desc{
+  color: white;
+  font-size: 21px;
+  font-family: comfort;
+  width: 100%;
+  height: 30px;
+  margin-top: 20px;
+  padding-left: 75px;
+  margin-bottom: 20px;
+}
+textarea.desc_area{
+  width: 80%;
+  margin-left: 10%;
+  resize: none;
+  background-color: #D8D5D6;
+  border:0px solid;
+  color: gray;
+  padding-left: 15px;
+  padding-top: 3px;
+  border-radius: 2px;
+  transition: 0.5s;
+}
+input.cr_cov_link{
+  width: 80%;
+  margin-left: 10%;
+  border-radius: 0px;
+  background-color: #D8D5D6;
+  border:0px solid;
+  color: gray;
+  padding-left: 15px;
+  padding-top: 3px;
+  border-radius: 2px;
+  transition: 0.5s;
+}
+textarea.desc_area:hover,
+input.cr_cov_link:hover{
+  border:2px solid grey;
+}
+
+textarea.desc_area:focus,
+input.cr_cov_link:focus{
+  border:2px solid grey;
+  background-color: white;
+  color: black;
+}
