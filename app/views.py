@@ -330,7 +330,7 @@ def get_unit(index):
 	else:
 		return render_template('plreg.html')
 
-@app.route('/publicate')
+@app.route('/publicate',methods=['GET','POST'])
 def publicater():
 	if 'loged_in' in session:
 		uslname = True
@@ -340,5 +340,29 @@ def publicater():
 		return render_template('post_form.html',uslname = uslname,
 			curname = curname,town = town
 		)
+	else:
+		return render_template('plreg.html')
+
+@app.route('/publish')
+def publish():
+	if 'loged_in' in session:
+		uslname = True
+		curname = session['nickname']
+		town = session.get('town')
+		uid = Admin.query.filter_by(nickname=curname).first().uid
+		title = request.args.get('title')
+		desk = request.args.get('descript')
+		cover = request.args.get('coverlink')
+		data = request.args.get('editor1')
+
+		autor = Post(autor = curname,title = title,desk = desk,
+			cover = cover,article = data)
+		db.session.add(autor)
+		db.session.commit()
+		#return render_template('test.html',uslname = uslname,
+			#curname = curname,town = town,desk = desk,cover = cover,
+			#data = data
+		#)
+		return redirect('/')
 	else:
 		return render_template('plreg.html')

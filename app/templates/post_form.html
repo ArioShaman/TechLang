@@ -19,23 +19,27 @@
 				<div class="cr-tit">
 					CREATE POST
 				</div>
+				<form action="/publish">
+					<div class="cr-desc">Title:</div>
 
-				<div class="cr-desc">Description:</div>
+					<input type="text" name="title" class="cr_cov_link" placeholder="title">
 
-				<textarea name="descript" class="desc_area" rows="2" maxlength="200" placeholder="description"></textarea>
+					<div class="cr-desc">Description:</div>
 
-				<div class="cr-desc">Cover link:</div>
+					<textarea name="descript" class="desc_area" rows="2" maxlength="200" placeholder="description"></textarea>
 
-				<input type="text" name="coverlink" class="cr_cov_link" placeholder="cover link">
+					<div class="cr-desc">Cover link:</div>
 
-				<div class="cr-desc">Content:</div>
+					<input type="text" name="coverlink" class="cr_cov_link" placeholder="cover link">
 
-				<textarea name="editor1" id="editor1" rows="12">
-                This is my textarea to be replaced with CKEditor.
-            	</textarea>
+					<div class="cr-desc">Content:</div>
 
-            	<div class="pub-btn"></div>
+					<textarea name="editor1" id="editor1" rows="12">
+	                
+	            	</textarea>
 
+	            	<button class="pub-btn" type="submit">PUBLSIH</button>
+            	</form>
             	<div class="empt-20"></div>
 			</div>
 		</div>

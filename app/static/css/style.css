@@ -948,11 +948,21 @@ input.cr_cov_link:focus{
 
 .pub-btn{
   margin-top: 25px;
-  width: 20%;
-  margin-left: 40%;
+  width: 30%;
+  margin-left: 35%;
   height: 50px;
-  background-color: yellow;
+  background-color: rgb(48, 213, 123);
   position: relative;
+  border-radius: 3px;
+  border: 0px solid;
+  text-align: center;
+  color: white;
+  font-family: rubik;
+  font-size: 21px;
+  transition: 0.5s;
+}
+.pub-btn:hover{
+  background-color: #169851;
 }
 .empt-20{
   height: 20px;
