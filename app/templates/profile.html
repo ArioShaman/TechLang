@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>main</title>
+	<meta charset="utf-8">
+	{% include 'mini-temp/head.html' %}
+	<link rel="stylesheet" type="text/css" href="{{url_for('static', filename='css/alan.css')}}">
+	<link rel="stylesheet" type="text/css" href="{{url_for('static', filename='css/profile.css')}}">
+
+</head>
+<body>
+
+{% include 'mini-temp/sidebar.html' %}
+
+<div class="container-body3 height1">
+	<div class="content-block">
+		<div class="profile">
+		 	<div class="col-lg-12">
+		 			<div class="col-lg-4">
+		 				<div class="avabl">
+		 					<div class="ava">
+		 					<img src="{{url_for('static', filename='images/user.svg')}}" alt="">
+		 					<div class="onof">
+
+		 					</div>
+		 						<div class="status">
+		 							<div class="rank">
+		 								U
+		 							</div>
+		 						</div>
+		 						<i class="fa fa-user-plus  fa-2x" aria-hidden="true"></i>
+		 					</div>
+		  				</div>
+		  			</div>
+		  				<div class="col-lg-8">
+		  					<div class="info">
+		  						<div class="name">
+		  							<h1>User User</h1>
+		  						</div>
+		  						<div class="flag">
+		  							<img src="{{url_for('static', filename='images/united-states.svg')}}" alt="">
+		  						</div>
+		  					</div>
+		  				</div>
+		  				<div class="col-lg-8">
+		  					<div class="info2">
+		  						<div class="city">
+		  							<h4>Boston</h4>
+		  						</div>
+		  						<div class="years">
+		  							<h4>35 years</h4>
+		  						</div>
+		  						<div class="lvl">
+		  						</div>
+		  					</div>
+		  				</div>
+		  				<div class="profile-info-cont">
+		  					<div class="inf">
+		  						<p class="num">97</p> 
+		  						<p class="num2">Friends</p>
+		  					</div>
+		  					<div class="inf">
+		  						<div class="stolb"></div>
+		  						<p class="num">8</p> 
+		  						<p class="num2">Teachers</p>
+		   					</div>
+		  					<div class="inf">
+		  						<div class="stolb"></div>
+		  						<p class="num">134</p> 
+		  						<p class="num2">Words</p>
+		  					</div>
+		  					<div class="inf">
+		  						<div class="stolb"></div>
+		  						<p class="num">4</p> 
+		  						<p class="num2">Events</p>
+		  					</div>
+		  				</div>
+
+		  				<div class="profile-tags">
+		  					<div class="tags">
+			  						<div class="tag">
+			  							traveling
+			  							<a href="#">
+			  								<i class="fa remoter fa-times"></i>
+			  							</a>
+			  						</div>
+
+			  						<div class="tag">
+			  							walking
+			  							<a href="#">
+			  								<i class="fa remoter fa-times"></i>
+			  							</a>
+			  						</div>
+
+			  						<div class="tag">
+			  							code
+			  							<a href="#">
+			  								<i class="fa remoter fa-times"></i>
+			  							</a>
+			  						</div>
+
+			  						<div class="tag">
+			  							football
+			  							<a href="#">
+			  								<i class="fa remoter fa-times"></i>
+			  							</a>
+			  						</div>
+
+			  						<div class="tag">
+			  							traveling
+			  							<a href="#">
+			  								<i class="fa remoter fa-times"></i>
+			  							</a>
+			  						</div>
+
+			  						<div class="tag">
+			  							architecture
+			  							<a href="#">
+			  								<i class="fa remoter fa-times"></i>
+			  							</a>
+			  						</div>
+
+			  						<div class="tag">
+			  							animals
+			  							<a href="#">
+			  								<i class="fa remoter fa-times"></i>
+			  							</a>
+			  						</div>
+
+		  					</div>
+		  				</div>
+
+		  				<div class="events">
+		  					<div class="event">
+		  						<div class="ev-tit">
+		  							<div class="ev-texte">
+		  								Relax in Bali
+		  							</div>
+		  							
+		  							<div class="remote-c">
+		  								<i class="fa remote fa-times"></i>
+		  							</div>
+		  						</div>
+
+		  						<div class="razmit">
+		  							<img src="{{url_for('static', filename='images/razmit.jpg')}}" class="all-img" alt="">
+		  							<div class="prozr"></div>
+		  						</div>
+
+		  						<div class="ev-info">
+		  							<div class="ev-text">
+		  								<p>Some text Some text Some text Some text Some text Some text Some text Some text Some text Some text Some text</p>
+		  							</div>
+
+		  							<div class="ev-foot">
+		  								<a href="#" class="add-l">
+		  									<div class="addere">
+		  										<i class="fa fa-plus faadd"></i> add
+		  									</div>
+		  								</a>
+		  								<div class="colles">
+		  										<p>mans: 35/44</p>
+		  								</div>
+		  								
+		  							</div>
+		  						</div>
+		  					</div>
+		  					
+		  					<div class="event">
+		  						<div class="ev-tit">
+		  							<div class="ev-texte">
+		  								Relax in Bali
+		  							</div>
+		  							
+		  							<div class="remote-c">
+		  								<i class="fa remote fa-times"></i>
+		  							</div>
+		  						</div>
+
+		  						<div class="razmit">
+		  							<img src="{{url_for('static', filename='images/razmit.jpg')}}" class="all-img" alt="">
+		  							<div class="prozr"></div>
+		  						</div>
+
+		  						<div class="ev-info">
+		  							<div class="ev-text">
+		  								<p>Some text Some text Some text Some text Some text Some text Some text Some text Some text Some text Some text</p>
+		  							</div>
+
+		  							<div class="ev-foot">
+		  								<a href="#" class="add-l">
+		  									<div class="addere">
+		  										<i class="fa fa-plus faadd"></i> add
+		  									</div>
+		  								</a>
+		  								<div class="colles">
+		  										<p>mans: 35/44</p>
+		  								</div>
+		  								
+		  							</div>
+		  						</div>
+		  					</div>
+
+		  					<div class="event">
+		  						<div class="ev-tit">
+		  							<div class="ev-texte">
+		  								Relax in Bali
+		  							</div>
+		  							
+		  							<div class="remote-c">
+		  								<i class="fa remote fa-times"></i>
+		  							</div>
+		  						</div>
+
+		  						<div class="razmit">
+		  							<img src="{{url_for('static', filename='images/razmit.jpg')}}" class="all-img" alt="">
+		  							<div class="prozr"></div>
+		  						</div>
+
+		  						<div class="ev-info">
+		  							<div class="ev-text">
+		  								<p>Some text Some text Some text Some text Some text Some text Some text Some text Some text Some text Some text</p>
+		  							</div>
+
+		  							<div class="ev-foot">
+		  								<a href="#" class="add-l">
+		  									<div class="addere">
+		  										<i class="fa fa-plus faadd"></i> add
+		  									</div>
+		  								</a>
+		  								<div class="colles">
+		  										<p>mans: 35/44</p>
+		  								</div>
+		  								
+		  							</div>
+		  						</div>
+		  					</div>
+
+
+
+
+
+		  				</div>
+
+		 			</div>
+		 		</div>
+	</div>
+</div>
+<script>
+function openNav() {
+    document.getElementById("mySidenav").style.width = "250px";
+    document.getElementById("main").style.marginLeft = "250px";
+}
+
+function closeNav() {
+    document.getElementById("mySidenav").style.width = "0";
+    document.getElementById("main").style.marginLeft= "0";
+}
+
+$(document).ready(function(){
+	$('#nav-icon1').click(function(){
+		$(this).toggleClass('open');
+		$("#mySidenav").toggleClass('nav');
+		$("#nav-icon1").toggleClass('m-nav');
+		$(".container-body").toggleClass('m-cont');
+	});
+});
+</script>
+     
+</body>
+</html>

@@ -1,6 +1,6 @@
 from app import db
 from flask_admin.contrib.sqlamodel import ModelView
-from sqlalchemy import Column, Integer, String,Text
+from sqlalchemy import Column, Integer, String,Text, LargeBinary, DateTime
 import datetime
 
 
@@ -77,12 +77,11 @@ class Videos(db.Model):
 class Post(db.Model):
     uid = db.Column(db.Integer,primary_key = True)
     autor = db.Column(db.String(24))
-    title = db.Column(db.String(24))
-    desk = db.Column(db.String(124))
-    cover = db.Column(db.String(564))
-    article = db.Column(db.String(560))
-    #data = db.Column(db.DateTime,default=datetime.datetime.utcnow)
-
+    title = db.Column(db.String(124))
+    desk = db.Column(db.String(560))
+    cover = db.Column(db.String(400))
+    date = db.Column(db.DateTime, default=datetime.datetime.utcnow)
+    
 class Events(db.Model):
     uid = db.Column(db.Integer,primary_key = True)
     autor_id = db.Column(db.Integer)

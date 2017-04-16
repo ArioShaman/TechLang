@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>main</title>
+	<meta charset="utf-8">
+	{% include 'mini-temp/head.html' %}
+	<link rel="stylesheet" type="text/css" href="{{url_for('static', filename='css/alan.css')}}">
+
+</head>
+<body>
+
+{% include 'mini-temp/sidebar.html' %}
+
+<div class="container-body3 height1">
+	<div class="content-block">
+		<div class="post-cont">
+			<div class="post-tit">{{post.title}}</div>
+
+			<div class="smal-d-info">
+				<div class="autor-info">Autor: {{post.autor}}</div>
+			</div>
+
+			<div class="data">
+				{{get_art(post.uid)|safe }}
+			</div>
+		</div>
+	</div>
+</div>
+<script>
+function openNav() {
+    document.getElementById("mySidenav").style.width = "250px";
+    document.getElementById("main").style.marginLeft = "250px";
+}
+
+function closeNav() {
+    document.getElementById("mySidenav").style.width = "0";
+    document.getElementById("main").style.marginLeft= "0";
+}
+
+$(document).ready(function(){
+	$('#nav-icon1').click(function(){
+		$(this).toggleClass('open');
+		$("#mySidenav").toggleClass('nav');
+		$("#nav-icon1").toggleClass('m-nav');
+		$(".container-body").toggleClass('m-cont');
+	});
+});
+</script>
+     
+</body>
+</html>

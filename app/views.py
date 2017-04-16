@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 import os, re
+import os.path
 from app import app, db, lm
 from flask import g,jsonify,request, render_template, Flask, url_for, flash, redirect,session, abort, session, send_from_directory,send_file
 import models
@@ -179,7 +180,6 @@ def get_name(uid):
 	return str(l_name)+"  "+str(f_name)
 
 def get_lname(nickname):
-
 	l_name = Admin.query.filter_by(uid = uid).first().Lastname
 	f_name = Admin.query.filter_by(uid = uid).first().Firstname
 	return str(l_name)+"  "+str(f_name)
@@ -257,6 +257,23 @@ def concret_chat_root(r_id):
 		return render_template('chat.html',form = form,uslname = uslname,curname = curname,town = town)
 
 
+@app.route('/post/<uid>')
+def req_post(uid):
+	if 'loged_in' in session:
+		uslname = True
+		curname = session['nickname']
+		town = session.get('town')
+		post_id = uid
+		post = Post.query.filter_by(uid = post_id).first()
+		return render_template('post.html',
+			post = post,uslname = uslname,
+			curname = curname,town = town,
+			get_art = get_art)
+	else:
+		return render_template('plreg.html')
+
+
+
 @app.route('/send_mess/<r_id>/<user_id>',methods=['GET','POST'])
 def send_message(r_id,user_id):
 	if request.method == 'GET':
@@ -281,8 +298,11 @@ def cources(nickname):
 		town = session.get('town')
 		uid = Admin.query.filter_by(nickname=nickname).first().uid
 		videos = Videos.query.filter_by(user_id = uid).all()
-		posts = Post.query.filter_by(autor=nickname).all()
-		return render_template('account-teacher.html',posts = posts,videos = videos,uslname = uslname,curname = curname,town = town)
+		posts = Post.query.filter_by(autor=nickname).order_by('uid desc').all()
+		nickname = nickname
+		return render_template('account-teacher.html',posts = posts,videos = videos,
+			uslname = uslname,curname = curname,
+			town = town, nickname = nickname)
 	else:
 		return render_template('plreg.html')
 
@@ -304,11 +324,12 @@ def get_units():
 		curname = session['nickname']
 		town = session.get('town')
 		uid = Admin.query.filter_by(nickname=curname).first().uid
-		if uid == None:
+		last_check_unit = check_unit_user.query.filter_by(user_id = uid).first().check_unit
+		if last_check_unit == None:
 			return redirect('/unit/1')
 		else:
-			return redirect('unit/%s'%(uid))
-		last_check_unit = check_unit_user.query.filter_by(user_id = uid).first().check_unit
+			return redirect('unit/%s'%(last_check_unit))
+			#return render_template('test.html', last =last_check_unit)
 
 		return render_template('units.html',uslname = uslname,
 			curname = curname,town = town,
@@ -330,7 +351,7 @@ def get_unit(index):
 	else:
 		return render_template('plreg.html')
 
-@app.route('/publicate',methods=['GET','POST'])
+@app.route('/publicate')
 def publicater():
 	if 'loged_in' in session:
 		uslname = True
@@ -343,7 +364,20 @@ def publicater():
 	else:
 		return render_template('plreg.html')
 
-@app.route('/publish')
+
+def write_file(post_id,data):
+	basedir = os.path.abspath(os.path.dirname(__file__))
+	f = open('%s/templates/posts/post%s.html'%(basedir,post_id),'w')
+	f.write(data)
+	f.close()
+
+def get_art(post_id):
+	basedir = os.path.abspath(os.path.dirname(__file__))
+	f = open('%s/templates/posts/post%s.html'%(basedir,post_id),'r')
+	data = f.read()
+	return data
+
+@app.route('/publish',methods=['GET','POST'])
 def publish():
 	if 'loged_in' in session:
 		uslname = True
@@ -356,13 +390,21 @@ def publish():
 		data = request.args.get('editor1')
 
 		autor = Post(autor = curname,title = title,desk = desk,
-			cover = cover,article = data)
+			cover = cover)#,article = data)
+		p_id = get_last_post()
+		p_id = int(p_id) +1
+		write_file(p_id,data)
 		db.session.add(autor)
 		db.session.commit()
-		#return render_template('test.html',uslname = uslname,
-			#curname = curname,town = town,desk = desk,cover = cover,
-			#data = data
-		#)
-		return redirect('/')
+		return redirect('/cources/%s'%curname)
 	else:
 		return render_template('plreg.html')
+
+@app.route('/id')
+def get_profile():
+	return render_template('profile.html')
+
+def get_last_post():		
+	uid = Post.query.all()
+	uid = str(uid[-1].uid)
+	return uid

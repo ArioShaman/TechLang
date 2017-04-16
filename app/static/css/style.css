@@ -185,7 +185,10 @@ body {
 .content-block{
     margin-top: 100px;
 }
-
+.hel-dvig{
+  width: 90%;
+  margin-left: 5%;
+}
 
 .face-block{
   margin-top: -60px;
@@ -213,6 +216,7 @@ body {
   width: 170px;
   height: 90px;
   margin-left: 70px;
+  position: relative;
 }
 .name{
   color: white;
@@ -854,14 +858,23 @@ input.send-mess{
 }
 .unit-cont{
   width: 80%;
+  margin-bottom-bottom: 50px;
   margin-left: 10%;
   background-color: white;
   box-shadow: 0 0 10px rgba(0,0,0,0.5);
 }
 .unit-full{
   width: 100%;
-  height: 400px;
+  height: 1000px;
   background-color: #FFEBF5;
+}
+.un-tit{
+  width: 100%;
+  height: 40px;
+  font-size: 31px;
+  color: black;
+  font-family: rubik;
+  text-align: center;
 }
 .unit-cover{
   height: 300px;
@@ -872,10 +885,11 @@ input.send-mess{
   height: 100%;
 }
 .askal{
-  position: absolute;
+  position: relative;
+  z-index: 200;
   height: 380px;
   width: 200px;
-  margin-left: 700px;
+  margin-left: 75px;
   margin-top: -30px;
 }
 .create-cont{
@@ -884,6 +898,13 @@ input.send-mess{
   border-radius: 9px;
   background-color: rgb(34, 34, 34)
 
+}
+.un-inf{
+  padding-top: 30px;
+  padding-left: 25px;
+  padding-right: 25px;
+  color: black;
+  font-family: open-sans;
 }
 .cr_text{
   color: white;
@@ -967,4 +988,58 @@ input.cr_cov_link:focus{
 .empt-20{
   height: 20px;
   width: 100%;
+}
+.post-cont{
+  border-radius: 9px;
+  width: 80%;
+  margin-left: 10%;
+  background-color: white;
+  box-shadow: 0 0 10px rgba(0,0,0,0.5);
+}
+.post-tit{
+  height: 75px;
+  width: 100%;
+  font-size: 41px;
+  text-align: center;
+  padding-top: 10px;
+  font-weight: 700;
+  color: black;
+}
+.data{
+  padding-bottom: 50px;
+  margin-top: 50px;
+}
+.smal-d-info{
+  height: 25px;
+  width: 100%;
+}
+.autor-info{
+  padding-left: 75px;
+  font-weight: 600;
+  font-size: 19px;
+}
+.data{
+  margin-left: 50px;
+  margin-right: 50px;
+}
+.ind-text{
+  background-color: white;
+  width: 100%;
+  position: relative;
+  padding-bottom: 50px;
+}
+.ind-text p{
+  padding-left: 50px;
+  padding-right: 50px;
+  padding-top: 50px;
+  font-family: open-sans;
+  font-size: 19px;
+}
+.un-cont{
+  height: 300px;
+  width: auto;
+  background-color: grey;
+}
+.marg-25{
+  margin-top:25px;
 }

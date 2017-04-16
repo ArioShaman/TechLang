@@ -11,30 +11,19 @@
 
 {% include 'mini-temp/sidebar.html' %}
 
-<div class="container-body height1">
+<div class="container-body3 height1">
 	<div class="content-block">
 		<div class="hello">
-			<a href="">
+			<a href="/search">
 				<div class="submit">BEGIN</div>
 			</a>
 
-			<div class="ind-tit">
-				We are expand borders
-			</div>
+			<img src="{{ url_for('static', filename = 'images/main(2).jpg')}}" width="100%" height="100%">
+			<div class="ind-text">
+				<p>TechLang - technological solution for the practice, study and teaching of the English language. After a short time the English will be the language of the world. On our website you can learn and practice the English language literally with two clicks.Just register, select topics that interest you, and after that, our service will pick you companion. But there are a few rules: in addition to the English language in chat is not allowed other language, it is impossible to use English letters to write foreign words. We aim to practice honest and effective.</p>
 
-			<img src="{{ url_for('static', filename = 'images/main.jpg')}}" width="100%" height="100%">
-		</div>
-		<div class="info">
-		<div class="infone">
-			<div class="cont">
-				<img src="{{ url_for('static', filename = 'images/infoone.jpg')}}" width="100%" height="100%">
+				<p>In addition, we will help you to start learning the language right from the primary level.Lots of colorful illustrations , interesting tasks, colorful lessons will help you gain basic speaking and writing skills faster and better. Communication in the network is not live communication, nothing can replace him, be it voice chat or video chat.Therefore, for enterprises interlocutors, we came up with the organization.Our service gives the opportunity for any English speaking user to create their courses to reveal the secrets of the English language to everyone!</p>
 			</div>
-		</div>
-		<div class="inftwo">
-			<div class="cont">
-				<img src="{{ url_for('static', filename = 'images/infotwo.jpg')}}" width="100%" height="100%">
-			</div>
-		</div>
 		</div>
 	</div>
 </div>
@@ -55,6 +44,7 @@ $(document).ready(function(){
 		$("#mySidenav").toggleClass('nav');
 		$("#nav-icon1").toggleClass('m-nav');
 		$(".container-body").toggleClass('m-cont');
+		$(".hello").toggleClass('hel-dvig');
 	});
 });
 </script>
